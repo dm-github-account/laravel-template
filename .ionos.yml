@@ -4,6 +4,7 @@ build-steps:
   - name: nodejs
     commands:
       - npm ci
+      - npm test command
       - npm run production
   - name: composer
     commands:
