@@ -11,7 +11,12 @@ build-steps:
       - composer install --optimize-autoloader --no-dev
       - php artisan key:generate --force -n
 
-configuration-example-file: .env.example
+template-files:
+  - type: laravel-env-completion
+    path: .env
+    source-file: .env.example
+  - type: htaccess-completion
+    path: .htaccess
 
 deploy-step:
   deployment-folder: "./"
