@@ -1,0 +1,5 @@
+#! /bin/bash
+
+mysql --user={{.runtime.db.user}} --password={{.runtime.db.password}} --host={{.runtime.db.host}} {{.runtime.db.name}} < init/initial-data.sql
+
+echo "initial-data.sql imported"
