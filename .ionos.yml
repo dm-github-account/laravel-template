@@ -28,7 +28,6 @@ deploy-step:
       - output.log
     remote-commands:
       post-deployment:
-        - find $(pwd) -type f -not -path \"$(pwd)/logs/*\" -exec chmod 664 {} \\;
         - chmod -R o+w storage bootstrap/cache
         - php artisan migrate --force
         - php artisan optimize:clear
@@ -48,7 +47,6 @@ deploy-step:
       pre-deployment:
         - php artisan down
       post-deployment:
-        - find $(pwd) -type f -not -path "$(pwd)/logs/*" -exec chmod 664 {} \;
         - chmod -R o+w storage bootstrap/cache
         - php artisan migrate --force
         - php artisan optimize:clear
